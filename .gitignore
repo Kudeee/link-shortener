@@ -1,0 +1,3 @@
+.venv/
+linkshortener/.env
+db.sqlite3
