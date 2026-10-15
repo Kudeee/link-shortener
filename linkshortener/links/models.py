@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import URLValidator
 
 import secrets
 import string
@@ -8,7 +9,7 @@ import string
 alpha_num = string.ascii_letters + string.digits
 
 class Link(models.Model):
-    original_url = models.URLField(max_length=2000)
+    original_url = models.URLField(max_length=2000, validators=[URLValidator(schemes=['http', 'https'])])
     short_code = models.CharField(max_length=6, unique=True, blank=True)
     click_counter = models.IntegerField(default=0)
     date_created = models.DateTimeField(auto_now_add=True)
