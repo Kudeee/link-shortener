@@ -1,0 +1,109 @@
+:root {
+    --bg: #ffffff;
+    --text: #1c1f26;
+    --muted: #5b6270;
+    --accent: #2457d6;
+    --border: #d9dce3;
+    --error: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14171c;
+        --text: #e6e8ec;
+        --muted: #9aa1ad;
+        --accent: #7ea2ff;
+        --border: #2b303a;
+        --error: #f2b8b5;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: var(--accent); }
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.site-header,
+main {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+}
+
+.site-header { border-bottom: 1px solid var(--border); }
+
+.site-header .brand {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+main { padding-top: 1.5rem; padding-bottom: 3rem; }
+
+h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 0.5rem; }
+
+.lead { color: var(--muted); margin: 0 0 1.5rem; }
+
+.field { margin-bottom: 1rem; }
+
+label { display: block; margin-bottom: 0.25rem; color: var(--muted); }
+
+input[type="url"],
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+}
+
+input[type="submit"] {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--bg);
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Django's form error messages */
+.errorlist {
+    margin: 0.35rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--error);
+}
+
+.short-link {
+    margin: 1rem 0 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 1.25rem;
+    margin: 0 0 1.5rem;
+}
+
+.details dt { color: var(--muted); }
+.details dd { margin: 0; overflow-wrap: anywhere; }

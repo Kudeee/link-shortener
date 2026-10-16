@@ -1,2 +1,22 @@
-<p>your shortened link:</p>
-<a href="{{short_url}}">{{short_url}}</a>
+{% extends "links/base.html" %}
+
+{% block title %}Your short link{% endblock %}
+
+{% block content %}
+<h1>Your short link</h1>
+
+<p class="short-link"><a href="{{ short_url }}">{{ short_url }}</a></p>
+
+<dl class="details">
+    <dt>Original URL</dt>
+    <dd><a href="{{ link.original_url }}">{{ link.original_url }}</a></dd>
+
+    <dt>Clicks</dt>
+    <dd>{{ link.click_counter }} click{{ link.click_counter|pluralize }}</dd>
+
+    <dt>Created</dt>
+    <dd>{{ link.date_created|date:"M j, Y" }}</dd>
+</dl>
+
+<p><a href="/">Shorten another link</a></p>
+{% endblock %}
